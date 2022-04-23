@@ -1,0 +1,75 @@
+---
+title: "Exercise_1_2"
+author: "Agathe ZEKAD K-14508"
+date: '2022-04-23'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+***
+```{r}
+#Exercise 1
+
+#If i is a multiplier of both 3 and 5, print "Fizzbuzz"
+#If i is a multiplier of 3, print "Fizz"
+#IF i is a multiplier of 5, print "Buzz
+
+fnums <- 1:100
+for (i in fnums){
+  if (i %% 3 == 0 & i %% 5 == 0) {print("FizzBuzz")}
+  else if (i %% 3 == 0) {print("Fizz")}
+  else if (i %% 5 == 0) {print("Buzz")}
+  else {print(i)}}
+
+```
+***
+```{r}
+#Exercise 2 
+#1.Interval of 20 to 30 for this function
+#When i is [20,21] -> print 21, the largest Fibonacci number smaller than i
+#When i is [22,30] -> print   
+
+new.function <- function(){
+  for(i in 20:21)
+    print(13)
+  for(i in 22:30)
+    print(21)
+
+}
+new.function()
+ 
+#2.This function reverses a string
+reverse_chars <- function(string)
+{
+  string_split =
+    strsplit(as.character(string), split = "")
+  reversed_split = 
+    string_split[[1]][nchar(string):1]
+  paste(reversed_split, collapse = "")
+}
+reverse_chars(9126)
+
+```
+***
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
