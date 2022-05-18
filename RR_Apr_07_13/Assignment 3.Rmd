@@ -4,6 +4,7 @@ author: "Wojciech Hardy; Łukasz Nawaro"
 date: "3/29/2022"
 output: html_document
 ---
+<<<<<<< HEAD
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -13,6 +14,14 @@ params:
   
 ```
 ---
+=======
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+load("../Data/season_1.RData")
+```
+
+>>>>>>> fa95e6745f673e0e9d62b9919a61e6232d952d74
 # Game of Thrones - Season 1 summary in numbers
 
 ### __(*Warning:* spoilers ahead)__
