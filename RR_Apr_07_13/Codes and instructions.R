@@ -31,7 +31,7 @@ render("RMD_class_1_cut.Rmd", clean = FALSE)   # tells knitr to keep the interme
 # Main goal: modify the Assignment 3 content to make it an automated report
 # that can be used for any of the Game of Thrones seasons.
 # 
-# - Use params. 
+# - Use params.
 # 
 # - You can refer to the files in the Data folder as input or you can visit
 # the Wikipedia pages for specific seasons and use web scraping (the longer but possible road).

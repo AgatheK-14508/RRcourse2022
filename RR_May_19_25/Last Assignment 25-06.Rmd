@@ -1,0 +1,86 @@
+---
+title: "Last Assignment 25-06"
+author: "Agathe ZEKAD K-14508"
+date: '2022-05-26'
+output:   
+  html_document:
+    theme: united
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(meta)
+library(metafor)
+library(rvest)
+library(readxl)
+metaanalysis_data <- read_excel("C:/Users/agath/Desktop/RR1/RRcourse2022/RR_May_19_25/data/metaanalysis_data.xlsx")
+```
+
+```{r}
+library(readxl)
+metaanalysis_data <- read_excel("C:/Users/agath/Desktop/RR1/RRcourse2022/RR_May_19_25/data/metaanalysis_data.xlsx")
+metaanalysis_data[1:27,]
+```
+
+```{r}
+m <- metagen(TE=N_girls,
+             seTE=Mean_girls_play_female,
+             data=metaanalysis_data,
+             studlab=paste(Study),
+             comb.fixed = TRUE,
+             comb.random = FALSE)
+m
+```
+
+```{r}
+m.raw <- metacont(n.e=N_girls,
+                  mean.e= Mean_girls_play_female,
+                  sd.e=SD_girls_play_female,
+                  n.c=N_boys,
+                  mean.c=Mean_boys_play_male,
+                  sd.c=SD_boys_play_male,
+                  data=metaanalysis_data,
+                  studlab=paste(Study),
+                  comb.fixed = TRUE,
+                  comb.random = TRUE,
+)
+m.raw
+```
+
+```{r}
+m %>% forest(sortvar=TE)
+```
+
+```{r}
+m %>% funnel()
+```
+
+```{r}
+m %>% funnel(contour = c(.95,.975,.99),
+       col.contour=c("coral4","yellow1","coral3"))+
+legend(1.4, 0, c("p < 0.05", "p<0.025", "< 0.01"),bty = "n",
+       fill=c("coral4","yellow1","coral3"))
+```
+
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
